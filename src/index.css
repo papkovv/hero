@@ -1,13 +1,117 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background:#111;
+  font-family:Courier New, monospace;
+  font-size:1.5vw;
+  color:#8df776;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.parameter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  color:#8df776;
+  border: none;
+  background:#111;
+  font-size:1.5vw;
+  font-family:Courier New, monospace;
+}
+
+input {
+  color:#8df776;
+  border: none;
+  background:#111;
+  font-size:1.5vw;
+  font-family:Courier New, monospace;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  font-family:Courier New, monospace;
+  color:#8df776;
+  text-decoration: none;
+}
+
+.hero {
+  margin-top: 2%;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.skill {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+}
+
+.nameInput {
+  text-align: center;
+  font-family:Courier New, monospace;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: 50%;
+}
+
+.characteristic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.god {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.realHero {
+  height: auto;
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.hp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.element {
+  margin-top: 5%;
+}
+
+.save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.upload {
+  display: none;
 }

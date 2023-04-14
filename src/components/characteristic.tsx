@@ -17,8 +17,9 @@ export class Characteristic extends Component<CharacteristicProps, Characteristi
 
     render() {
         return (
-            <div>
-                <h1>{this.props.name}: {this.props.count}</h1>
+            <div className={"characteristic"}>
+                <p>{this.props.name}: </p>
+                <p>{this.props.count}</p>
             </div>
         );
     }

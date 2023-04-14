@@ -10,10 +10,6 @@ type  NameProps = {
 }
 
 export class Name extends Component<NameProps, NameState> {
-    constructor(props: NameProps) {
-        super(props);
-    }
-
     changeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredName = event.target.value
         this.props.changeName(enteredName)
@@ -21,10 +17,10 @@ export class Name extends Component<NameProps, NameState> {
 
     render() {
         return (
-            <div>
-                <h1>Меня зовут: {this.props.name}</h1>
-                <h1>Изменить имя: </h1>
-                <input type={"text"} value={this.props.name} onChange={this.changeEvent}/>
+            <div className={"name"}>
+                <p>{`-->`}</p>
+                <input className={"nameInput"} type={"text"} value={this.props.name} onChange={this.changeEvent}/>
+                <p>{`<--`}</p>
             </div>
         );
     }

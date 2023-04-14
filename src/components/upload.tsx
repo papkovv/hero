@@ -9,11 +9,6 @@ type  UploadProps = {
 }
 
 export class Upload extends Component<UploadProps, UploadState> {
-    constructor(props: UploadProps) {
-        super(props);
-
-    }
-
     handlerSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
         let reader = new FileReader()
         reader.readAsText(event.target.files![0])
@@ -25,11 +20,15 @@ export class Upload extends Component<UploadProps, UploadState> {
     render() {
         return (
                 <div>
-                    <input
-                        id={"fileLoaderButton"}
-                        type={"file"}
-                        onChange={this.handlerSubmit}
-                    />
+                    <label htmlFor="file">
+                        <span>--{'>'}Загрузить{'<'}--</span>
+                        <input
+                            id="file"
+                            type={"file"}
+                            onChange={this.handlerSubmit}
+                            className="upload"
+                        />
+                    </label>
                 </div>
             );
     }

@@ -9,12 +9,13 @@ type  SkillProps = {
     name: string,
     parameter: number,
     skill: number,
-    increaseSkill: any
+    increaseSkill: any,
 }
 
 export class Skill extends Component<SkillProps, SkillState> {
+    lvl: string[] = ["Нетренированный", "Новичок", "Ученик", "Адепт", "Эксперт", "Мастер"]
 
-    changeSkill = (skill: number, parameter: number) => {
+    changeSkill = (skill: number, parameter: number, ) => {
         if (skill === parameter) {
             skill = this.props.skill
         } else {
@@ -27,9 +28,12 @@ export class Skill extends Component<SkillProps, SkillState> {
 
     render() {
         return (
-            <div>
-                <h1>{this.props.name}: {this.props.skill}</h1>
-                <button onClick={() => {this.changeSkill(this.props.skill, this.props.parameter)}}>+</button>
+            <div className={"parameter"}>
+                <p>{this.props.name}: </p>
+                <div  className={"counter"}>
+                    <p>{this.lvl[this.props.skill]} {this.props.skill}</p>
+                    <button onClick={() => {this.changeSkill(this.props.skill, this.props.parameter)}}>+</button>
+                </div>
             </div>
         );
     }

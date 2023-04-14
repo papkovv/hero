@@ -19,10 +19,14 @@ export class Parameter extends Component<ParameterProps, ParameterState> {
 
     render() {
         return (
-            <div>
-                <h1>{this.props.name}: {this.props.count}</h1>
-                <button onClick={() => {this.props.increase(this.props.id)}}>+</button>
-                <button onClick={() => {this.props.decrease(this.props.id)}}>-</button>
+            <div className={"parameter"}>
+                <p>{this.props.name}: </p>
+                <div className={"counter"}>
+                    <button onClick={() => {this.props.decrease(this.props.id)}}>-</button>
+                    <p>{this.props.count}</p>
+                    <button onClick={() => {this.props.increase(this.props.id)}}>+</button>
+                </div>
+
             </div>
         );
     }

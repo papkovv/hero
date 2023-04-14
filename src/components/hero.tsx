@@ -37,7 +37,7 @@ export class Hero extends Component<HeroProps, HeroState> {
         super(props);
 
         this.state = {
-            name: "Герой",
+            name: "Имя",
 
             hp: 3,
             hpMax: 3,
@@ -59,7 +59,7 @@ export class Hero extends Component<HeroProps, HeroState> {
             intimidation: 0,
             insight: 0,
             appearance: 0,
-            manipulation: 0
+            manipulation: 0,
         }
     }
 
@@ -376,37 +376,74 @@ export class Hero extends Component<HeroProps, HeroState> {
 
     render() {
         return (
-            <div>
-                <Parameter id={0} name={"Сила"} count={this.state.strength} increase={this.increaseParameter} decrease={this.decreaseParameter}/>
-                <Parameter id={1} name={"Ловкость"} count={this.state.agility} increase={this.increaseParameter} decrease={this.decreaseParameter} />
-                <Parameter id={2} name={"Интеллект"} count={this.state.intelligence} increase={this.increaseParameter} decrease={this.decreaseParameter} />
-                <Parameter id={3} name={"Харизма"} count={this.state.charisma} increase={this.increaseParameter} decrease={this.decreaseParameter} />
+            <div className={"hero"}>
+                <div className={"stats"}>
+                    <div className={"column"}>
+                        <div>
+                            <Name name={this.state.name} changeName={this.changeName} />
+                        </div>
+                        <div className={"god"}>
+                            <p className={"realHero"}>
+                                ⣿⣿⣿⣿⡟⠛⠁⠄⠄⠄⠄⢀⣀⣀⠄⠄⠄⠄⣤⣽⣿⣿⣿⣿⣿⣿⣿⣿
+                                ⣿⣿⣿⡋⠁⠄⠄⠄⣠⣶⣾⣿⣿⣿⣿⠄⢦⡄⠐⠬⠛⢿⣿⣿⣿⣿⣿⣿
+                                ⣿⡿⠇⠁⠄⠄⣠⣾⣿⣿⡿⠟⠋⠁⠄⠄⠈⠁⠄⠄⠄⠄⠙⢿⣿⣿⣿⣿
+                                ⣿⠃⠄⠄⠄⠘⣿⣿⣿⣿⢀⣠⠄⠄⠄⠄⣰⣶⣀⠄⠄⠄⠄⠸⣿⣿⣿⣿
+                                ⣏⠄⠄⠄⠄⠄⣿⣿⣿⡿⢟⣁⠄⣀⣠⣴⣿⣿⠿⠷⠶⠒⠄⠄⢹⣿⣿⣿
+                                ⡏⠄⠄⠄⠄⢰⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄⠛⠁⠄⠄⠄⠄⠄⠄⢠⣿⣿⣿
+                                ⡇⠄⠄⠄⠄⠈⢿⣿⣿⣿⣿⣿⣿⣿⡇⠄⣼⣿⠇⠘⠄⠁⠄⠄⠄⢻⣿⣿
+                                ⣇⠄⠄⠄⠄⠄⠸⢿⣿⣿⣿⣿⣿⣿⠁⠸⠟⠁⣠⣤⣤⣶⣤⠄⠄⠄⢻⣿
+                                ⣿⡄⠄⡤⢤⣤⡀⠈⣿⣿⣿⣿⣿⣿⡆⠄⠄⠘⠋⠁⠄⠄⠈⠄⠄⠄⢸⣿
+                                ⣿⣿⡜⢰⡾⢻⣧⣰⣿⣿⣿⣿⣿⣿⣷⠄⣼⣷⣶⣶⡆⠄⠄⠄⠄⠄⠄⣿
+                                ⣿⣿⣧⢸⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⠄⠄⠄⠄⠄⠄⠄⣿
+                                ⣿⣿⣿⣿⡿⢿⡟⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠄⠄⢀⡀⠄⠘⣿
+                                ⣿⣿⣿⣿⣿⣆⢻⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠄⠄⠈⠁⠄⠄⣿
+                                ⣿⣿⣿⣿⣿⣿⡆⢻⣿⣿⣿⣿⣿⣿⡿⠛⠛⠛⠃⠄⠄⠄⠄⠄⠄⠄⢀⣿
+                                ⣿⣿⣿⣿⣿⣿⣿⣆⣻⣿⣿⣿⣿⣿⣷⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸⣿
+                            </p>
+                        </div>
+                        <div className={"element"}>
+                            <Health name={"Здоровье"} hp={this.state.hp} hpMax={this.state.hpMax} takeDamage={this.takeDamage}/>
+                        </div>
+                    </div>
+                    <div className={"column"}>
+                        <div className={"element"}>
+                            <Parameter id={0} name={"Сила"} count={this.state.strength} increase={this.increaseParameter} decrease={this.decreaseParameter}/>
+                            <Parameter id={1} name={"Ловкость"} count={this.state.agility} increase={this.increaseParameter} decrease={this.decreaseParameter} />
+                            <Parameter id={2} name={"Интеллект"} count={this.state.intelligence} increase={this.increaseParameter} decrease={this.decreaseParameter} />
+                            <Parameter id={3} name={"Харизма"} count={this.state.charisma} increase={this.increaseParameter} decrease={this.decreaseParameter} />
+                        </div>
+                        <div  className={"element"}>
+                            <Characteristic name={"Уклонение"} count={this.state.evasion} />
+                            <Characteristic name={"Энергичность"} count={this.state.energy} />
+                        </div>
+                        <div  className={"element"}>
+                            <Skill id={0} name={"Атака"} parameter={this.state.strength} skill={this.state.attack} increaseSkill={this.increaseSkill} />
+                            <Skill id={1} name={"Стелс"} parameter={this.state.agility} skill={this.state.stealth} increaseSkill={this.increaseSkill} />
+                            <Skill id={2} name={"Стрельба из лука"} parameter={this.state.agility} skill={this.state.archery} increaseSkill={this.increaseSkill} />
+                            <Skill id={3} name={"Обучаемость"} parameter={this.state.intelligence} skill={this.state.learnability} increaseSkill={this.increaseSkill} />
+                            <Skill id={4} name={"Выживание"} parameter={this.state.intelligence} skill={this.state.survival} increaseSkill={this.increaseSkill} />
+                            <Skill id={5} name={"Медицина"} parameter={this.state.intelligence} skill={this.state.medicine} increaseSkill={this.increaseSkill} />
+                            <Skill id={6} name={"Запугивание"} parameter={this.state.charisma} skill={this.state.intimidation} increaseSkill={this.increaseSkill} />
+                            <Skill id={7} name={"Проницательность"} parameter={this.state.charisma} skill={this.state.insight} increaseSkill={this.increaseSkill} />
+                            <Skill id={8} name={"Внешний вид"} parameter={this.state.charisma} skill={this.state.appearance} increaseSkill={this.increaseSkill} />
+                            <Skill id={9} name={"Манипулирование"} parameter={this.state.charisma} skill={this.state.manipulation} increaseSkill={this.increaseSkill} />
+                        </div>
 
-                <Characteristic name={"Уклонение"} count={this.state.evasion} />
-                <Characteristic name={"Энергичность"} count={this.state.energy} />
+                    </div>
 
-                <Health name={"Здоровье"} hp={this.state.hp} hpMax={this.state.hpMax} takeDamage={this.takeDamage}/>
+                </div>
+                <div className={"save"}>
+                    <p>{`-->`}</p>
+                    <a
+                        type="button"
+                        href={`data:text/json;charset=utf-8, ${encodeURIComponent(JSON.stringify(this.state))}`}
+                        download="hero.json">Сохранить
+                    </a>
+                    <p>{`<--`}</p>
+                    <p> --- </p>
 
-                <Name name={this.state.name} changeName={this.changeName} />
-
-                <Skill id={0} name={"Атака"} parameter={this.state.strength} skill={this.state.attack} increaseSkill={this.increaseSkill} />
-                <Skill id={1} name={"Стелс"} parameter={this.state.agility} skill={this.state.stealth} increaseSkill={this.increaseSkill} />
-                <Skill id={2} name={"Стрельба из лука"} parameter={this.state.agility} skill={this.state.archery} increaseSkill={this.increaseSkill} />
-                <Skill id={3} name={"Обучаемость"} parameter={this.state.intelligence} skill={this.state.learnability} increaseSkill={this.increaseSkill} />
-                <Skill id={4} name={"Выживание"} parameter={this.state.intelligence} skill={this.state.survival} increaseSkill={this.increaseSkill} />
-                <Skill id={5} name={"Медицина"} parameter={this.state.intelligence} skill={this.state.medicine} increaseSkill={this.increaseSkill} />
-                <Skill id={6} name={"Запугивание"} parameter={this.state.charisma} skill={this.state.intimidation} increaseSkill={this.increaseSkill} />
-                <Skill id={7} name={"Проницательность"} parameter={this.state.charisma} skill={this.state.insight} increaseSkill={this.increaseSkill} />
-                <Skill id={8} name={"Внешний вид"} parameter={this.state.charisma} skill={this.state.appearance} increaseSkill={this.increaseSkill} />
-                <Skill id={9} name={"Манипулирование"} parameter={this.state.charisma} skill={this.state.manipulation} increaseSkill={this.increaseSkill} />
-
-                <a
-                    type="button"
-                    href={`data:text/json;charset=utf-8, ${encodeURIComponent(JSON.stringify(this.state))}`}
-                    download="hero.json">Сохранить
-                </a>
-
-                <Upload upload={this.upload}/>
+                    <Upload upload={this.upload}/>
+                </div>
             </div>
         );
     }
